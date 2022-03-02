@@ -7,10 +7,11 @@ const Laptop = ({laptop}) => {
    const toggleDetails = () => {
       setIsShown(!isShown);
    } 
-
+  
    return (
     
   <div>
+ 
 <h2>{laptop.name}</h2>
 {isShown && <p>Brand: {laptop.brand} Weight: {laptop.weigth}</p>}
      <Button color="primary" onClick={toggleDetails}>{isShown ? "Show less" : "Show more"}</Button>
