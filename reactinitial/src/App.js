@@ -4,6 +4,7 @@ import LoadingMask from "./components/LoadingMask"
 import Laptop from "./components/Laptop"
 
 
+
 const App = () => {
   const [laptops, setLaptops] = useState(null);
 
