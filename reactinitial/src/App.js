@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react"
 import http from "axios"
 import LoadingMask from "./components/LoadingMask"
+import Laptop from "./components/Laptop"
+
 
 const App = () => {
   const [laptops, setLaptops] = useState(null);
-  const [isShown, setIsShown] = useState(false);
 
   const load = async() => {
     const response = await http.get("https://demoapi.com/api/laptop")
@@ -14,14 +15,16 @@ const App = () => {
 
 useEffect(() => {
   load();
-  setTimeout(() => {
-    setIsShown(true)
-  }, 2 * 1000);
+ }, []);
 
-}, []);
   return (
     <div>
-      Todo...
+    <h1>Laptop API final exam</h1>
+      {laptops ? 
+      laptops.map((laptop, i) => (
+      <Laptop laptop={laptop} key={i}/>
+      ))
+      : <LoadingMask />}
     </div>
   )
 }
